@@ -41,9 +41,25 @@ const getUserById = async (req, res) =>{
     res.send(result);
 }
 
+// @desc update user by ID
+// @route PUT /api/user/:id
+// @access PUBLIC
+
+const changeUserById = async (req, res) =>{
+    const result = await User.updateOne({_id: req.params.id }, {
+        $set: {
+            name: req.body.name,
+            password: req.body.password
+        }
+    });
+    res.send(result);
+   
+}
+
 module.exports = {
     createUser,
     getUsers,
     getUserByName,
-    getUserById
+    getUserById,
+    changeUserById
 }
