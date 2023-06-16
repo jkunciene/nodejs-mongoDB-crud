@@ -10,12 +10,14 @@ const {
     getUsers,
     getUserByName,
     getUserById,
-    changeUserById 
+    changeUserById,
+    deleteUserById 
 } = require('./controllers/userController');
 
 
 app.post('/api/user', createUser);
 app.put('/api/user/:id', changeUserById);
+app.delete('/api/user/:id', deleteUserById);
 app.get('/api/user/:id', getUserById);
 app.get('/api/users', getUsers);
 app.get('/api/userbyname', getUserByName);

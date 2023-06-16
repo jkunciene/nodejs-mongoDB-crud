@@ -56,10 +56,25 @@ const changeUserById = async (req, res) =>{
    
 }
 
+// @desc delete user by ID
+// @route DELETE /api/user/:id
+// @access PUBLIC
+
+const deleteUserById = async (req, res) =>{
+    const result = await User.findByIdAndRemove({_id: req.params.id })
+    res.send(result);
+}
+
 module.exports = {
     createUser,
     getUsers,
     getUserByName,
     getUserById,
-    changeUserById
+    changeUserById,
+    deleteUserById
 }
+
+//Namu darbai:
+//sudeti patikrinimus
+//ar visur yra uzpildyti reikalingi laukai?
+//kas butu, jei butu? jei tokio vartotojo jau nera?
